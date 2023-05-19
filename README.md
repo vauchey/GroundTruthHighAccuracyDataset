@@ -2,6 +2,8 @@
 # Particle filter meets hybrid octrees: an octree-based vehicle localization approach without learning (Submitted by [ESIGELEC](https://www.esigelec.fr/))
 
 ## News :
+* 2023/05/20 : Full dataset is availaible here : [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7951627.svg)](https://doi.org/10.5281/zenodo.7951627)
+
 * 2023/01/14 : Add off-road datasets [here](#OFFROAD)
 
 * 2022/12/15 : Update dataset directories
@@ -19,13 +21,13 @@
 * 2020/02/18 : A first dataset is availaible (dataset used for paper) [here](#FEBRUARY).
 
 ## Abstract :
-This paper presents a 6 DoF (Degree of Freedom) real-time vehicle localization based on hybrid octrees and particle filtering of LiDAR data. Our approach is based on two lightweight frameworks. It makes it possible to reduce the memory footprint of the map and significantly lowers the computation load for online localization. Our approach has shown to perform well on both CPUs and GPUs. The algorithm design makes it possible to run the localization simultaneously on both architectures. Our localization method is LiDAR agnostic. Our experiments have been carried out with two distinctive LiDAR technologies: scanning LiDAR and flash LiDAR. Our extensive experimental validation shows that our method is both accurate and reliable on several datasets, platforms and environments. We have especially shown that the same localization algorithms and parameters can perform well in urban and offroad environments. We have also evaluated the robustness of our method when masking angular sectors of the LiDAR field of view. The performance achieved with the flash LiDAR is close to the scanning LiDAR despite different resolutions and sensing modalities. The positioning performance is significant with 10cm and 0.12$\degree$ angular RMSE for both technologies. We evaluated our approach on the KITTI dataset and achieved fair results with respect to the state of the art. This paper also introduced the baseline performance on a multi-seasonal dataset we are publicly releasing to the community. We validated our approach in an off-road environment from a front view field of view with only 768 LiDAR points.
+This paper proposes an accurate lidar-based outdoor localization method that requires few computational resources, is robust in challenging environments (urban, off-road, seasonal variations) and whose performances are equivalent for two different sensor technologies: scanning LiDAR and flash LiDAR. The method is based on the matching between a pre-built 3D map and the LiDAR measurements. Our contribution lies in the combined use of a particle filter with a hybrid octree to reduce the memory footprint of the map and significantly decrease the computational load for online localization. The design of the algorithm allows it to run on both CPU and GPU with equivalent performance. We have evaluated our approach on the KITTI dataset and obtained good results compared to the state of the art. This paper introduces the baseline performance on a multi-seasonal dataset we are publicly releasing to the community. We have shown that the same localization algorithms and parameters can perform well in urban environments and can be extended to off-road environments. We have also evaluated the robustness of our method when masking angular sectors of the LiDAR field of view to reproduce edge-cases scenarios in urban environments where the LiDAR field is partially occulted by another vehicle (bus, truck). Finally, experiments have been carried out with two distinctive scanning and flash LiDAR technologies. The performance achieved with the flash LiDAR is close to the scanning LiDAR despite different resolutions and sensing modalities. The positioning performance is significant with 10cm and 0.12° angular RMSE for both technologies. We validated our approach in an off-road environment from a front view field of view with only 768 LiDAR points.
 
 
 
 [![](https://img.youtube.com/vi/BLnmOXnFlSA/0.jpg)](https://www.youtube.com/watch?v=BLnmOXnFlSA)
 
-Vincent VAUCHEY¹, Pierre MERRIAUX², Xavier SAVATIER³, Yohan DUPUIS⁴.  
+Vincent VAUCHEY¹⁴, Pierre MERRIAUX², Xavier SAVATIER³, Yohan DUPUIS⁴.  
 ¹[ESIGELEC](http://www.esigelec.fr/) , IRSEEM, Rouen, France, Normandie Univ, UNIROUEN, 
 ²[Leddartech](http://www.leddartech.com.),   Quebec   City,   Canada 
 ³[ESIGELEC](https://navya.tech/fr/) , NAVYA, Paris, France
@@ -41,9 +43,8 @@ fourre@esigelec.fr
 
 Special Thanks to the members of the [SIRD](http://www.esigelec.fr/en/node/113) team : Marc DEHAIS, Anthony DESHAIS, Christophe ALEGRE, Pascal FALLA, Jérémy FOURRE
 # Datasets
-Dataset Lidar/IMU/RGBD Camera done by [ESIGELEC](http://www.esigelec.fr/).
+Dataset Lidar/IMU/RGBD Camera done by Vincent VAUCHEY.
 
-<span style="color:red">Some new dataset on same roads will be availaible each mounth.</span>
 
 [![](https://img.youtube.com/vi/6mwToyNoxMQ/0.jpg)](https://www.youtube.com/watch?v=6mwToyNoxMQ)
 
@@ -66,10 +67,11 @@ In addition of this very high accurate IMU, we're also using a postprocessing ap
 <a id="FEBRUARY"></a>
 #### DATASET 2020/02/18 : 
 * Loop1 : Winter sun and some clouds (~1.5km)
-    * [30 km/h dataset A (Download)](https://esigelec-my.sharepoint.com/:f:/g/personal/fourre_esigelec_fr/EoIzHXdWnotOgE2SHytIZdQBep1mAMpel_PV1z5khQQOuQ?e=c8RLRy)
-    * [30 km/h dataset B (Download)](https://esigelec-my.sharepoint.com/:f:/g/personal/fourre_esigelec_fr/EqgAV-Hk60pAghTUWenH9AEBXBSaAAVRq-gAqKZs7RvxEg?e=OfsuKV)
-    * [40 km/h dataset (Download)](https://esigelec-my.sharepoint.com/:f:/g/personal/fourre_esigelec_fr/EoWtZtLupKtAlZpaAkfg2x8BeHz_CzU8TwBdDTDXL4o55w?e=gHWus3)
-    * [50 km/h dataset (Download)](https://esigelec-my.sharepoint.com/:f:/g/personal/fourre_esigelec_fr/EtxpS0xGX9BPuNm29J0_SZMB3dRW977arGx78Yet_2CFow?e=dpRSrq)
+
+    * [30 km/h dataset A (Download)](https://zenodo.org/record/7951627/files/2020_02_18_LOOP1_30kmA.zip?download=1)
+    * [30 km/h dataset B (Download)](https://zenodo.org/record/7951627/files/2020_02_18_LOOP1_30kmB.zip?download=1)
+    * [40 km/h dataset (Download)](https://zenodo.org/record/7951627/files/2020_02_18_LOOP1_40km.zip?download=1)
+    * [50 km/h dataset (Download)](https://zenodo.org/record/7951627/files/2020_02_18_LOOP1_50km.zip?download=1)
     * [Directory Tree and calibrations](#TREE)
 
     [![](images/LOOP1.gif)](https://www.google.com/maps/d/embed?mid=1cAdJnWjBnK7ZZkCva8ftSXN_qYLh2o9t   )
@@ -83,9 +85,9 @@ In addition of this very high accurate IMU, we're also using a postprocessing ap
 
 * Loop2 : Winter sun and some clouds with one short tunnel (~2.6 km)
 
-    * [30 km/h dataset (Download)](https://esigelec-my.sharepoint.com/:f:/g/personal/fourre_esigelec_fr/EvKdvaHJ-15DuqQNvcFTs_cBeU0N4Jj47X_Eo9seEy2U-A?e=0MynMT)
-    * [40 km/h dataset (Download)](https://esigelec-my.sharepoint.com/:f:/g/personal/fourre_esigelec_fr/EnQVRVI6txpDruEbV8LkIx4B-7UINeZN_6FGxuP4kVOyKQ?e=mBPcPp)
-    * [50 km/h dataset (Download)](https://esigelec-my.sharepoint.com/:f:/g/personal/fourre_esigelec_fr/ElXGShe0LRxHvg9w1i71_VwBrQE-Va-TjdJKHjhHh4zJ1Q?e=0SenAk)
+    * [30 km/h dataset (Download)](https://zenodo.org/record/7951627/files/2020_02_18_LOOP2_30km.zip?download=1)
+    * [40 km/h dataset (Download)](https://zenodo.org/record/7951627/files/2020_02_18_LOOP2_40km.zip?download=1)
+    * [50 km/h dataset (Download)](https://zenodo.org/record/7951627/files/2020_02_18_LOOP2_50km.zip?download=1)
     * [Directory Tree and calibrations](#TREE)
 
     [![](images/LOOP2.gif)](https://www.google.com/maps/d/embed?mid=1aRvGyCyWWRs2k5G5HH2M6DCKO5p3p3LA)
@@ -99,19 +101,19 @@ In addition of this very high accurate IMU, we're also using a postprocessing ap
 Images will be availaible as soon as the containment due to the COVID19 will be finish.
 
 * Loop1 : Winter sun (~1.5km)
-    * [30 km/h dataset A (Download)](https://esigelec-my.sharepoint.com/:f:/g/personal/fourre_esigelec_fr/EtkuBDG2nExJs2y2oc-sXaEB5EOqpV2TH25wOYz99KEBOQ?e=eKVds5)
-    * [30 km/h dataset B (Download)](https://esigelec-my.sharepoint.com/:f:/g/personal/fourre_esigelec_fr/EnyWA83yorhGjSyGfhrHmoEBKwhsIzTVYcAm7f-XIu6rIQ?e=nFHG3Y)
-    * [40 km/h dataset (Download)](https://esigelec-my.sharepoint.com/:f:/g/personal/fourre_esigelec_fr/Ek1qKLwSUaNEoltFgcAfYJ4Bj05W6p051aWf31IsVe1j0A?e=AVHCcF)
-    * [50 km/h dataset (Download)](https://esigelec-my.sharepoint.com/:f:/g/personal/fourre_esigelec_fr/EjG-OhERFkhIknx2gOh0b8YB4vMQU_KxknMF9wlAov8isA?e=3HXONo)
+    * [30 km/h dataset A (Download)](https://zenodo.org/record/7951627/files/2020_03_17_LOOP1_30KMH_A.zip?download=1)
+    * [30 km/h dataset B (Download)](https://zenodo.org/record/7951627/files/2020_03_17_LOOP1_30KMH_B.zip?download=1)
+    * [40 km/h dataset (Download)](https://zenodo.org/record/7951627/files/2020_03_17_LOOP1_40KMH.zip?download=1)
+    * [50 km/h dataset (Download)](https://zenodo.org/record/7951627/files/2020_03_17_LOOP1_50KMH.zip?download=1)
     * [Directory Tree and calibrations](#TREE)
 
     [![](images/LOOP1_March.gif)](https://www.google.com/maps/d/embed?mid=1cAdJnWjBnK7ZZkCva8ftSXN_qYLh2o9t   )
 
 * Loop2 : Winter sun  (~2.6 km) {: #funky }
 
-    * [30 km/h dataset (Download)](https://esigelec-my.sharepoint.com/:f:/g/personal/fourre_esigelec_fr/EmiPIIidclFBrmHdDObesPgBdoksZgeBP0XgFuXUeKIw-g?e=byAIV8)
-    * [40 km/h dataset (Download)](https://esigelec-my.sharepoint.com/:f:/g/personal/fourre_esigelec_fr/EiQtuLBdXnpFt6rGvTT3fIYB-1zc4AVW51xuUk1jCVK1uw?e=hOPRVF)
-    * [50 km/h dataset (Download)](https://esigelec-my.sharepoint.com/:f:/g/personal/fourre_esigelec_fr/EtF9YeO261dEkDctKjJfnhkBOn1zI09AG7i1EipBEI8w3g?e=DM2Lmr)
+    * [30 km/h dataset (Download)](https://zenodo.org/record/7951627/files/2020_03_17_LOOP2_30KMH.zip?download=1)
+    * [40 km/h dataset (Download)](https://zenodo.org/record/7951627/files/2020_03_17_LOOP2_40KMH.zip?download=1)
+    * [50 km/h dataset (Download)](https://zenodo.org/record/7951627/files/2020_03_17_LOOP2_50KMH.zip?download=1)
     * [Directory Tree and calibrations](#TREE)
 
     [![](images/LOOP2_March.gif)](https://www.google.com/maps/d/embed?mid=1aRvGyCyWWRs2k5G5HH2M6DCKO5p3p3LA)
@@ -120,19 +122,19 @@ Images will be availaible as soon as the containment due to the COVID19 will be 
 #### DATASET 2020/05/15 : 
 * Loop1 : spring (~1.5km)
 
-    * [30 km/h dataset A (Download)](https://esigelec-my.sharepoint.com/:f:/g/personal/fourre_esigelec_fr/EtoxeUpmw8JJoA2aehZhFs0B3qtVP31cJOnJ2Mi-DLmpGw?e=7wfCRM)
-    * [30 km/h dataset B (Download)](https://esigelec-my.sharepoint.com/:f:/g/personal/fourre_esigelec_fr/EhzXc_y5HC9FuB-AsWFsCMgBMjjShrPBdqGZ2B3nM_uRBw?e=9xAJ6C)
-    * [40 km/h dataset (Download)](https://esigelec-my.sharepoint.com/:f:/g/personal/fourre_esigelec_fr/Etvo_0TD52lCqL9woqNDvU8BWoHFnqcCIRU2GgSqF28ltA?e=GEqdha)
-    * [50 km/h dataset (Download)](https://esigelec-my.sharepoint.com/:f:/g/personal/fourre_esigelec_fr/EmSVc25RDvdKtvH8jjiCSsABK16qei5JIzk8b-ERlOl1pQ?e=NKI1QC)
+    * [30 km/h dataset A (Download)](https://zenodo.org/record/7951627/files/2020_05_15_LOOP1_30KMH_A.zip?download=1)
+    * [30 km/h dataset B (Download)](https://zenodo.org/record/7951627/files/2020_05_15_LOOP1_30KMH_B.zip?download=1)
+    * [40 km/h dataset (Download)](https://zenodo.org/record/7951627/files/2020_05_15_LOOP1_40KMH.zip?download=1)
+    * [50 km/h dataset (Download)](https://zenodo.org/record/7951627/files/2020_05_15_LOOP1_50KMH.zip?download=1)
     * [Directory Tree and calibrations](#TREE)
 
     [maps preview](https://www.google.com/maps/d/embed?mid=1cAdJnWjBnK7ZZkCva8ftSXN_qYLh2o9t)
     Now no camera dataset will done due to the big amouth of data generated and the few interests of this kind of dataset.
 * Loop2 :  spring (~1.5km)
 
-    * [30 km/h dataset (Download)](https://esigelec-my.sharepoint.com/:f:/g/personal/fourre_esigelec_fr/EntwRBebZHtGp6E8BzlxSSABg-0Z3r4dyxDtfqiftzZqHw?e=6orkCo)
-    * [40 km/h dataset (Download)](https://esigelec-my.sharepoint.com/:f:/g/personal/fourre_esigelec_fr/Ejj0rxZyiipLqEWx3GlPdi0BQZtwLCVCXkxi_bFGEhSYFQ?e=gGWiVE)
-    * [50 km/h dataset (Download)](https://esigelec-my.sharepoint.com/:f:/g/personal/fourre_esigelec_fr/EgrydZFx6OxJr4Bcf3ZZ9vgBA6UPJlO3ELsF2p2z3yvByA?e=Lbd7cu)
+    * [30 km/h dataset (Download)](https://zenodo.org/record/7951627/files/2020_05_15_LOOP2_30KMH.zip?download=1)
+    * [40 km/h dataset (Download)](https://zenodo.org/record/7951627/files/2020_05_15_LOOP2_40KMH.zip?download=1)
+    * [50 km/h dataset (Download)](https://zenodo.org/record/7951627/files/2020_05_15_LOOP2_50KMH.zip?download=1)
     * [Directory Tree and calibrations](#TREE)
 
     [maps preview](https://www.google.com/maps/d/embed?mid=1aRvGyCyWWRs2k5G5HH2M6DCKO5p3p3LA)
@@ -141,19 +143,19 @@ Images will be availaible as soon as the containment due to the COVID19 will be 
 <a id="JUNE"></a>
 #### DATASET 2020/06/18 : 
 * Loop1 : spring (~1.5km)
-    * [30 km/h dataset A (Download)](https://esigelec-my.sharepoint.com/:f:/g/personal/fourre_esigelec_fr/Evn3GbtAvBlDkmOCGrNPThcBUNElyTo35E-K303mbgUlCw?e=abPXwf)
-    * [30 km/h dataset B (Download)](https://esigelec-my.sharepoint.com/:f:/g/personal/fourre_esigelec_fr/EpZV-TUwqtJKuh03JnqLJ5sBpHryzZGiBsIQseVDlPTj-Q?e=vYmpR3)
-    * [40 km/h dataset (Download)](https://esigelec-my.sharepoint.com/:f:/g/personal/fourre_esigelec_fr/Em9Nb5yZNSxMtxKbCtsDoUYB0EaB-chBdbu7FYmPdpsRWA?e=iapWf4)
-    * [50 km/h dataset (Download)](https://esigelec-my.sharepoint.com/:f:/g/personal/fourre_esigelec_fr/EoUfbR31PjFAnUgK9sxOYpkBngv9IfXpkeffsF3CIoFszg?e=nsQ4bb)
+    * [30 km/h dataset A (Download)](https://zenodo.org/record/7951627/files/2020_06_18_LOOP1_30KMH_A.zip?download=1)
+    * [30 km/h dataset B (Download)](https://zenodo.org/record/7951627/files/2020_06_18_LOOP1_30KMH_B.zip?download=1)
+    * [40 km/h dataset (Download)](https://zenodo.org/record/7951627/files/2020_06_18_LOOP1_40KMH.zip?download=1)
+    * [50 km/h dataset (Download)](https://zenodo.org/record/7951627/files/2020_06_18_LOOP1_50KMH.zip?download=1)
     * [Directory Tree and calibrations](#TREE)
 
     [maps preview](https://www.google.com/maps/d/embed?mid=1cAdJnWjBnK7ZZkCva8ftSXN_qYLh2o9t)
 
 * Loop2 :  spring (~1.5km)
 
-    * [30 km/h dataset (Download)](https://esigelec-my.sharepoint.com/:f:/g/personal/fourre_esigelec_fr/EtUgIyKL9tFPpW3D1jZ6yUUBAwsvCvkkgYdWLzxmJpVmzw?e=VW6F6L)
-    * [40 km/h dataset (Download)](https://esigelec-my.sharepoint.com/:f:/g/personal/fourre_esigelec_fr/Ervb_gbp-4BCnohUCSL94HoB4eeJ51Yo5vF8oRuXGjpKpA?e=fBeccR)
-    * [50 km/h dataset (Download)](https://esigelec-my.sharepoint.com/:f:/g/personal/fourre_esigelec_fr/ElJH7foRExxEtfGL2FAt5NgBLibdES5R5AyA0iqbQQjjuw?e=2YK89q)
+    * [30 km/h dataset (Download)](https://zenodo.org/record/7951627/files/2020_06_18_LOOP2_30KMH.zip?download=1)
+    * [40 km/h dataset (Download)](https://zenodo.org/record/7951627/files/2020_06_18_LOOP2_40KMH.zip?download=1)
+    * [50 km/h dataset (Download)](https://zenodo.org/record/7951627/files/2020_06_18_LOOP2_50KMH.zip?download=1)
     * [Directory Tree and calibrations](#TREE)
 
     [maps preview](https://www.google.com/maps/d/embed?mid=1aRvGyCyWWRs2k5G5HH2M6DCKO5p3p3LA)
@@ -161,18 +163,18 @@ Images will be availaible as soon as the containment due to the COVID19 will be 
 <a id="JULY"></a>
 #### DATASET 2020/07/17 :
 * Loop1 : spring (~1.5km)
-    * [30 km/h dataset A (Download)](https://esigelec-my.sharepoint.com/:f:/g/personal/fourre_esigelec_fr/Eo7duo1OZplMnvzcNo-6EzoBQV9qr4eKJUkwJkkAjYWvZQ?e=cUaZ6E)
-    * [40 km/h dataset (Download)](https://esigelec-my.sharepoint.com/:f:/g/personal/fourre_esigelec_fr/ErmSTTda69VAtxn4bNQMKmQBND2gCl3wEtX0I651Yn3Zug?e=GQZgz2)
-    * [50 km/h dataset (Download)](https://esigelec-my.sharepoint.com/:f:/g/personal/fourre_esigelec_fr/EhyUtQbucspKjsBeI7H4nVMBR0UQ3i49QJ3qtsDhhyBe_w?e=Wd0AM8)
+    * [30 km/h dataset A (Download)](https://zenodo.org/record/7951627/files/2020_07_17_LOOP1_30kmA.zip?download=1)
+    * [40 km/h dataset (Download)](https://zenodo.org/record/7951627/files/2020_07_17_LOOP1_40km.zip?download=1)
+    * [50 km/h dataset (Download)](https://zenodo.org/record/7951627/files/2020_07_17_LOOP1_50km.zip?download=1)
     * [Directory Tree and calibrations](#TREE)
 
     [maps preview](https://www.google.com/maps/d/embed?mid=1cAdJnWjBnK7ZZkCva8ftSXN_qYLh2o9t)
 
 * Loop2 :  spring (~1.5km)
 
-    * [30 km/h dataset (Download)](https://esigelec-my.sharepoint.com/:f:/g/personal/fourre_esigelec_fr/ErSP0eUfmiVGgUqVV2gV9EMB7LFl1ZvnPSKAPLXIMwArRg?e=JZ8GAR)
-    * [40 km/h dataset (Download)](https://esigelec-my.sharepoint.com/:f:/g/personal/fourre_esigelec_fr/EiJ1WyjwVXlLov4tkh36U4MBHFCGzaKeN1PL2lyK0zF96A?e=qR8Siy)
-    * [50 km/h dataset (Download)](https://esigelec-my.sharepoint.com/:f:/g/personal/fourre_esigelec_fr/Et7DyXLtSLtInteitnPOQQcB85LuKY52QPw7uKGm_8JcyA?e=B9bdab)
+    * [30 km/h dataset (Download)](https://zenodo.org/record/7951627/files/2020_07_17_LOOP2_30kmA.zip?download=1)
+    * [40 km/h dataset (Download)](https://zenodo.org/record/7951627/files/2020_07_17_LOOP2_40km.zip?download=1)
+    * [50 km/h dataset (Download)](https://zenodo.org/record/7951627/files/2020_07_17_LOOP2_50km.zip?download=1)
     * [Directory Tree and calibrations](#TREE)
 
     [maps preview](https://www.google.com/maps/d/embed?mid=1aRvGyCyWWRs2k5G5HH2M6DCKO5p3p3LA)
@@ -182,13 +184,13 @@ Images will be availaible as soon as the containment due to the COVID19 will be 
 #### DATASET offroad :
 * Datasets off road (no pic availaibles becase done on a private area)
 
-    * [Falling1 (Download)](https://esigelec-my.sharepoint.com/:f:/g/personal/fourre_esigelec_fr/Eh8EwgtCEXBMrgnGCwEoStAB7nFZ0NZ3WIWuddQ_vU1g5A?e=UF2joQ)
+    * [Falling1 (Download)](https://zenodo.org/record/7951627/files/2020_11_23Falling1.zip?download=1)
 
-    * [Falling2 (Download)](https://esigelec-my.sharepoint.com/:f:/g/personal/fourre_esigelec_fr/EpJMMOPfJt5GtAJjR5_hvOgBB5cuDtxLUEwhZ8T9zmsasg?e=zH1eWQ)
+    * [Falling2 (Download)](https://zenodo.org/record/7951627/files/2020_11_23falling2.zip?download=1)
 
-    * [Rising2 (Download)](https://esigelec-my.sharepoint.com/:f:/g/personal/fourre_esigelec_fr/Eqt-VwHhZL1JuZF0F2LbB_oB0MwisEgqiv8oJTCc0hQwTg?e=lMT2NC)
+    * [Rising2 (Download)](https://zenodo.org/record/7951627/files/2020_11_23Rising2.zip?download=1)
 
-    * [Rising3  (Download)](https://esigelec-my.sharepoint.com/:f:/g/personal/fourre_esigelec_fr/Eridvk45kjlItdCNiVRIpL4Bcyx_2jGRUhOUvDtwvS6Nwg?e=IPOyLt)
+    * [Rising3  (Download)](https://zenodo.org/record/7951627/files/2020_11_23Rising3.zip?download=1)
 
     * [Directory Tree and calibrations](#TREE)
     [maps preview](https://www.google.com/maps/d/edit?mid=1LSxdVwQbkd-xmMvE0Gxr--NR1REUOr8)
